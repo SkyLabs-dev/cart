@@ -23,6 +23,21 @@ cartSdk = "1.0.0"
 
 [libraries]
 cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+retrofit-converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-urlconnection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttpUrlConnection" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
+
+kotpref = { group = "com.chibatching.kotpref", name = "kotpref", version.ref = "kotpref" }
+kotpref-gson-support = { group = "com.chibatching.kotpref", name = "gson-support", version.ref = "kotpref" }
+kotpref-enum-support = { group = "com.chibatching.kotpref", name = "enum-support", version.ref = "kotpref" }
+
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+datadoghq = { group = "com.datadoghq", name = "dd-sdk-android-rum", version.ref = "datadog" }
+datadoglogs = { group = "com.datadoghq", name = "dd-sdk-android-logs", version.ref = "datadog" }
   :
 ```
 
@@ -31,6 +46,22 @@ cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
 ```
 dependencies {
   implementation(libs.cart.sdk)
+  
+  implementation libs.retrofit
+    implementation libs.retrofit.converter.gson
+    implementation libs.retrofit.converter.scalars
+    implementation libs.okhttp
+    implementation libs.okhttp.urlconnection
+    implementation libs.logging.interceptor
+
+    implementation(libs.timber)
+
+    implementation libs.kotpref
+    implementation libs.kotpref.gson.support
+    implementation libs.kotpref.enum.support
+
+    implementation libs.datadoghq
+    implementation libs.datadoglogs
     :
 }
 ```
@@ -39,7 +70,36 @@ dependencies {
 
 ## SDK 초기화
 
-1. `Podfile` 수정
+1. `CARTManager` 생성 및 초기화
+```
+    CARTManager(
+        val context: Context,
+        bleVersion: CARTProtocolVersion,
+        cartListener: CARTListener
+    )
+```
+
+2. `CARTProtocolVersion`
+    - V1 : nrf52 (Old)
+    - V2 : nrf53 (New)
+
+
+3. `CARTListener`
+```
+interface CARTListener {
+    fun bleConnectStatus(status: CARTDefs.ConnectStatus)
+
+    fun bleScanList(scanStatus: CARTDefs.ScanStatus, device: CartDevice? = null)
+
+    fun systemStatus(logCount: Int, bpCount: Int, batteryLevel: Int, charge: Boolean)
+
+    fun batteryStatus(level: Int, charge: Boolean)
+
+    fun notification(type: CARTDefs.NotiType)
+}
+```
+
+4. 기타 자세한 사용법은 SDK Sample 프로젝트 참조
 
 
 ## 라이선스
