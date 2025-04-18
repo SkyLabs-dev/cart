@@ -18,7 +18,7 @@ Sky Labs CART SDK 연동 프로젝트입니다.
 1. libs.version.toml SDK 패키지 추가
 ```
 [versions]
-cartSdk = "1.0.0"
+cartSdk = "1.0.9"
   :
 
 [libraries]
@@ -80,8 +80,8 @@ dependencies {
 ```
 
 2. `CARTProtocolVersion`
-    - V1 : nrf52 (Old)
-    - V2 : nrf53 (New)
+    - V1 : 52 (Old)
+    - V2 : 53 (New)
 
 
 3. `CARTListener`
