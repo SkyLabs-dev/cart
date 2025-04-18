@@ -25,9 +25,9 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.skylabs.cart.sdk"
             artifactId = "cartsdk"
-            version = "1.0.7"
+            version = "1.0.8"
             // AAR 파일 경로
-            artifact(file("$projectDir/cartsdk-release-1.0.7.aar"))
+            artifact(file("$projectDir/cartsdk-release-1.0.8.aar"))
         }
     }
 }
