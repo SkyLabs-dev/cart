@@ -75,7 +75,7 @@ interface CARTListener {
 ```
 
 
-5. `CARTListener`
+5. `CARTScanListener`
 ```
 interface CARTScanListener {
     fun bleScanList(scanStatus: CARTDefs.ScanStatus, device: CartDevice? = null)
@@ -84,13 +84,14 @@ interface CARTScanListener {
 
 
 6. 기타 자세한 사용법은 `SDK Sample 프로젝트` 참조
+   SDK Sample 프로젝트는 계약 체결 후 제공 됩니다.
 
 
 ## 라이선스
 
 ```
-Naver ID Login SDK for iOS Swift
-Copyright (c) 2025-present NAVER Corp.
+Sky Labs CART SDK for Android Kotlin
+Copyright (c) 2025-present Sky Labs Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
