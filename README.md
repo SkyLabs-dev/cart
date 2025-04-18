@@ -51,17 +51,17 @@ dependencies {
 ```
 
 
-2. `clientId`
+- `clientId`
    SDK 사용 권한이 허용된 고유번호
    (계약이 체결되면 Sky Labs에서 발급합니다.)
 
 
-3. `CARTProtocolVersion`
+- `CARTProtocolVersion`
     - V1 : 52 (Old)
     - V2 : 53 (New)
 
 
-4. `CARTListener`
+- `CARTListener`
 ```
 interface CARTListener {
     fun bleConnectStatus(status: CARTDefs.ConnectStatus)
@@ -74,8 +74,23 @@ interface CARTListener {
 }
 ```
 
+## SDK 사용법
 
-5. `CARTScanListener`
+1. CART Connect
+
+- `CARTManager.connect(address: String?)`
+- 연결 및 연결해제 이벤트는 상기 CARTManager 초기화 시에 파라미터로 전달된 CARTListener에 전달된다.
+```
+interface CARTListener {
+    fun bleConnectStatus(status: CARTDefs.ConnectStatus)
+}
+```
+
+
+2. CART Scan
+
+- `startScan(listener: CARTScanListener): Boolean`
+- 스캔 리스트는 CARTScanListener에 실시간 전달된다.
 ```
 interface CARTScanListener {
     fun bleScanList(scanStatus: CARTDefs.ScanStatus, device: CartDevice? = null)
@@ -83,8 +98,11 @@ interface CARTScanListener {
 ```
 
 
-6. 기타 자세한 사용법은 `SDK Sample 프로젝트` 참조
-   SDK Sample 프로젝트는 계약 체결 후 제공 됩니다.
+3. 기타
+
+- 자세한 사용법은 `SDK Sample 프로젝트` 참조
+  - SDK Sample 프로젝트는 계약 체결 후 제공 됩니다.
+
 
 
 ## 라이선스
