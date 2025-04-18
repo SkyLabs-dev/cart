@@ -23,11 +23,11 @@ java {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            groupId = "com.skylabs.cart.sdk"
-            artifactId = "cartsdk"
-            version = "1.0.8"
+            groupId = "com.github.SkyLabs-dev"
+            artifactId = "cart"
+            version = "1.0.9"
             // AAR 파일 경로
-            artifact(file("$projectDir/cartsdk-release-1.0.8.aar"))
+            artifact(file("$projectDir/cartsdk-release.aar"))
         }
     }
 }
