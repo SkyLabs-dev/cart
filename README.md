@@ -73,18 +73,25 @@ dependencies {
 1. `CARTManager` 생성 및 초기화
 ```
     CARTManager(
-        val context: Context,
+        context: Context,
+        clientId: String,
         bleVersion: CARTProtocolVersion,
         cartListener: CARTListener
     )
 ```
 
-2. `CARTProtocolVersion`
+
+2. `clientId`
+   SDK 사용 권한이 허용된 고유번호
+   (계약이 체결되면 Sky Labs에서 발급합니다.)
+
+
+3`CARTProtocolVersion`
     - V1 : 52 (Old)
     - V2 : 53 (New)
 
 
-3. `CARTListener`
+4`CARTListener`
 ```
 interface CARTListener {
     fun bleConnectStatus(status: CARTDefs.ConnectStatus)
