@@ -15,10 +15,22 @@ Sky Labs CART SDK 연동 프로젝트입니다.
 
 ### Gradle Implementation 추가
 
-1. `libs.version.toml` SDK 패키지 추가
+1. `settings.gradle.kts` 
+```
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+  }
+}
+```
+
+
+2. `libs.version.toml` 
 ```
 [versions]
-cartSdk = "1.0.9"
+cartSdk = "Tag"
   :
 
 [libraries]
@@ -27,7 +39,7 @@ cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
 ```
 
 
-2. `build.gralde`
+3. `build.gralde`
 
 ```
 dependencies {
@@ -57,8 +69,8 @@ dependencies {
 
 
 - `CARTProtocolVersion`
-    - V1 : 52 (Old)
-    - V2 : 53 (New)
+    - V1 : 52
+    - V2 : 53
 
 
 - `CARTListener`
