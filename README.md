@@ -63,8 +63,8 @@ dependencies {
 ```
 
 
-- `clientId`
-   SDK 사용 권한이 허용된 고유번호
+- `clientId`  
+   SDK 사용 권한이 허용된 고유번호  
    (계약이 체결되면 Sky Labs에서 발급합니다.)
 
 
@@ -88,10 +88,9 @@ interface CARTListener {
 
 ## SDK 사용법
 
-1. CART Connect
-
-- `CARTManager.connect(address: String?)`
-- 연결 및 연결해제 이벤트는 상기 CARTManager 초기화 시에 파라미터로 전달된 CARTListener에 전달된다.
+1. CART Connect  
+  `CARTManager.connect(address: String?)`  
+  연결 및 연결해제 이벤트는 상기 CARTManager 초기화 시에 파라미터로 전달된 CARTListener에 전달된다.  
 ```
 interface CARTListener {
     fun bleConnectStatus(status: CARTDefs.ConnectStatus)
@@ -99,10 +98,9 @@ interface CARTListener {
 ```
 
 
-2. CART Scan
-
-- `startScan(listener: CARTScanListener): Boolean`
-- 스캔 리스트는 CARTScanListener에 실시간 전달된다.
+2. CART Scan  
+  `startScan(listener: CARTScanListener): Boolean`  
+  스캔 리스트는 CARTScanListener에 실시간 전달된다.  
 ```
 interface CARTScanListener {
     fun bleScanList(scanStatus: CARTDefs.ScanStatus, device: CartDevice? = null)
@@ -110,10 +108,9 @@ interface CARTScanListener {
 ```
 
 
-3. 기타
-
-- 자세한 사용법은 `SDK Sample 프로젝트` 참조
-  - SDK Sample 프로젝트는 계약 체결 후 제공 됩니다.
+3. 기타  
+  자세한 사용법은 `SDK Sample 프로젝트` 참조  
+  **SDK Sample 프로젝트는 계약 체결 후 제공 됩니다.**
 
 
 
@@ -122,16 +119,4 @@ interface CARTScanListener {
 ```
 Sky Labs CART SDK for Android Kotlin
 Copyright (c) 2025-present Sky Labs Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
 ```
