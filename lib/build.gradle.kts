@@ -7,16 +7,14 @@
  */
 
 plugins {
-    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     alias(libs.plugins.kotlin.jvm)
 
-    // Apply the java-library plugin for API and implementation separation.
     `java-library`
     `maven-publish`
 }
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(22)) // Java 22 사용
+        languageVersion.set(JavaLanguageVersion.of(22))
     }
 }
 
@@ -25,37 +23,21 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.SkyLabs-dev"
             artifactId = "cart"
-            version = "1.0.12"
-            // AAR 파일 경로
+            version = "1.0.13"
             artifact(file("$projectDir/cartsdk-release.aar"))
         }
     }
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
     api(libs.commons.math3)
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation(libs.guava)
 }
 
-testing {
-    suites {
-        // Configure the built-in test suite
-        val test by getting(JvmTestSuite::class) {
-            // Use Kotlin Test test framework
-            useKotlinTest("2.0.20")
-        }
-    }
-}
-
-// Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(22)
