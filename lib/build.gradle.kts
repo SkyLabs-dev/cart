@@ -12,6 +12,7 @@ plugins {
     `java-library`
     `maven-publish`
 }
+
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(22))
@@ -23,7 +24,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.SkyLabs-dev"
             artifactId = "cart"
-            version = "1.1.3"
+            version = "1.1.4"
             artifact(file("$projectDir/cartsdk-release.aar"))
         }
     }
@@ -36,10 +37,4 @@ repositories {
 dependencies {
     api(libs.commons.math3)
     implementation(libs.guava)
-}
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(22)
-    }
 }
