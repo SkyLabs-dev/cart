@@ -27,45 +27,65 @@ dependencyResolutionManagement {
 ```
 
 
-2. `libs.version.toml` 
+2. `libs.version.toml`
+- 기본 설정
 ```
 [versions]
 cartSdk = "Tag"
-  :
 
 [libraries]
 cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
-  :
 ```
 
 
 3. `build.gralde`
-
+- 기본 설정  
 ```
 dependencies {
   implementation(libs.cart.sdk)
-    :
 }
 ```
+- 추가 설정  
+```
+dependencies {
+  implementation libs.retrofit
+  implementation libs.retrofit.converter.gson
+  implementation libs.retrofit.converter.scalars
+  implementation libs.okhttp
+  implementation libs.okhttp.urlconnection
+  implementation libs.okhttp.logging.interceptor
 
+  implementation libs.androidx.room.ktx
+
+  implementation libs.timber
+
+  implementation libs.kotpref
+  implementation libs.kotpref.gson.support
+  implementation libs.kotpref.enum.support
+
+  implementation libs.datadoghq
+  implementation libs.datadoglogs
+}
+```
 
 
 ## SDK 초기화
 
 1. `CARTManager` 생성 및 초기화
 ```
-    CARTManager(
-        context: Context,
-        clientId: String,
-        bleVersion: CARTProtocolVersion,
-        cartListener: CARTListener
-    )
+  CARTManager(
+    context: Context,
+    clientId: String,
+    clientSec: String,
+    bleVersion: CARTProtocolVersion,
+    cartListener: CARTListener
+  )
 ```
 
 
-- `clientId`  
+- `clientId`, `clientSec`
    SDK 사용 권한이 허용된 고유번호  
-   (계약이 체결되면 Sky Labs에서 발급합니다.)
+   (계약이 체결되면 Sky Labs 에서 발급합니다.)
 
 
 - `CARTProtocolVersion`
