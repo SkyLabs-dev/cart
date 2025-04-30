@@ -36,7 +36,36 @@ cartSdk = "Tag"
 [libraries]
 cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
 ```
+- 추가 설정
+```
+[versions]
+retrofit = "2.9.0"
+okhttp = "4.12.0"
+okhttpUrlConnection = "4.9.0"
+okhttpLoggingInterceptor = "4.9.3"
+timber = "5.0.1"
+kotpref = "2.13.1"
+activity = "1.9.3"
+roomKtx = "2.6.1"
+datadog = "2.19.2"
 
+[libraries]
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+retrofit-converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-urlconnection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttpUrlConnection" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggingInterceptor" }
+
+kotpref = { group = "com.chibatching.kotpref", name = "kotpref", version.ref = "kotpref" }
+kotpref-gson-support = { group = "com.chibatching.kotpref", name = "gson-support", version.ref = "kotpref" }
+kotpref-enum-support = { group = "com.chibatching.kotpref", name = "enum-support", version.ref = "kotpref" }
+
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+datadoghq = { group = "com.datadoghq", name = "dd-sdk-android-rum", version.ref = "datadog" }
+datadoglogs = { group = "com.datadoghq", name = "dd-sdk-android-logs", version.ref = "datadog" }
+```
 
 3. `build.gralde`
 - 기본 설정  
