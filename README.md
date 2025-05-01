@@ -16,7 +16,7 @@ Sky Labs CART SDK 연동 프로젝트입니다.
 ### Gradle Implementation 추가
 
 1. `settings.gradle.kts` 
-```
+```groovy
 dependencyResolutionManagement {
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
   repositories {
@@ -29,7 +29,7 @@ dependencyResolutionManagement {
 
 2. `libs.version.toml`
 - 기본 설정
-```
+```groovy
 [versions]
 cartSdk = "Tag"
 
@@ -39,7 +39,7 @@ cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
 
 3. `build.gralde`
 - 기본 설정  
-```
+```groovy
 dependencies {
   implementation(libs.cart.sdk)
 }
@@ -49,7 +49,7 @@ dependencies {
 ## SDK 초기화
 
 1. `CARTManager` 생성 및 초기화
-```
+```kotlin
   CARTManager(
     context: Context,
     clientId: String,
@@ -71,7 +71,7 @@ dependencies {
 
 
 - `CARTListener`
-```
+```kotlin
 interface CARTListener {
     fun bleConnectStatus(status: CARTDefs.ConnectStatus)
 
@@ -88,7 +88,7 @@ interface CARTListener {
 1. CART Connect  
   `CARTManager.connect(address: String?)`  
   연결 및 연결해제 이벤트는 상기 CARTManager 초기화 시에 파라미터로 전달된 CARTListener에 전달된다.  
-```
+```kotlin
 interface CARTListener {
     fun bleConnectStatus(status: CARTDefs.ConnectStatus)
 }
@@ -98,7 +98,7 @@ interface CARTListener {
 2. CART Scan  
   `startScan(listener: CARTScanListener): Boolean`  
   스캔 리스트는 CARTScanListener에 실시간 전달된다.  
-```
+```kotlin
 interface CARTScanListener {
     fun bleScanList(scanStatus: CARTDefs.ScanStatus, device: CartDevice? = null)
 }
