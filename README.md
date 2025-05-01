@@ -15,36 +15,48 @@ Sky Labs CART SDK 연동 프로젝트입니다.
 
 ## 설치
 
+### AndroidManifest.xml Permission 추가
+```groovy
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+```
+
 ### Gradle Implementation 추가
 
 1. `settings.gradle.kts` 
 ```groovy
-dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-  }
-}
+    dependencyResolutionManagement {
+        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            mavenCentral()
+            maven { url 'https://jitpack.io' }
+        }
+    }
 ```
 
 
 2. `libs.version.toml`
 - 기본 설정
 ```groovy
-[versions]
-cartSdk = "Tag"
-
-[libraries]
-cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
+    [versions]
+    cartSdk = "Tag"
+    
+    [libraries]
+    cart-sdk = { module = "com.github.SkyLabs-dev:cart", version.ref = "cartSdk" }
 ```
 
 3. `build.gralde`
 - 기본 설정  
 ```groovy
-dependencies {
-  implementation(libs.cart.sdk)
-}
+    dependencies { 
+        implementation(libs.cart.sdk)
+    }
 ```
 
 
@@ -52,13 +64,13 @@ dependencies {
 
 1. `CARTManager` 생성 및 초기화
 ```kotlin
-  CARTManager(
-    context: Context,
-    clientId: String,
-    clientSec: String,
-    bleVersion: CARTProtocolVersion,
-    cartListener: CARTListener
-  )
+    CARTManager(
+        context: Context,
+        clientId: String,
+        clientSec: String,
+        bleVersion: CARTProtocolVersion,
+        cartListener: CARTListener
+    )
 ```
 
 
