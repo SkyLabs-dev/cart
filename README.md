@@ -1,3 +1,5 @@
+![Sky Labs logo](https://github.com/SkyLabs-dev/cart/blob/main/SkyLabs.png)
+
 # Sky Labs CART SDK for Android
 
 [![kotlin](https://img.shields.io/badge/kotlin-2.1.0-blue.svg)]() [![codecov](https://codecov.io/gh/chibatching/Kotpref/branch/master/graph/badge.svg)](https://codecov.io/gh/chibatching/Kotpref) [![license](https://img.shields.io/github/license/chibatching/Kotpref.svg?maxAge=2592000)]()
