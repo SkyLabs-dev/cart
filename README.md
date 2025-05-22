@@ -91,11 +91,11 @@ Sky Labs CART SDK 연동 프로젝트입니다.
 interface CARTListener {
     fun bleConnectStatus(status: CARTDefs.ConnectStatus)
 
-    fun systemStatus(logCount: Int, bpCount: Int, batteryLevel: Int, charge: Boolean)
-
     fun batteryStatus(level: Int, charge: Boolean)
 
     fun notification(type: CARTDefs.NotiType)
+
+    fun error(type: CARTDefs.ErrorType)
 }
 ```
 
@@ -106,7 +106,7 @@ interface CARTListener {
   연결 및 연결해제 이벤트는 상기 CARTManager 초기화 시에 파라미터로 전달된 CARTListener에 전달된다.  
 ```kotlin
 interface CARTListener {
-    fun bleConnectStatus(status: CARTDefs.ConnectStatus)
+    fun connectStatus(status: CARTDefs.ConnectStatus)
 }
 ```
 
